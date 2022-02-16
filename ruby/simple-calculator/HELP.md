@@ -9,7 +9,6 @@ terminal window and run the following command to install minitest:
 gem install minitest
 ```
 
-
 Run the tests from the exercise directory using the following command:
 
 ```
