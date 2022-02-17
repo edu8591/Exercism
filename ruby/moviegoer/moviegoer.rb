@@ -21,7 +21,4 @@ class Moviegoer
   def claim_free_popcorn!
     member ? '🍿' : raise(NotMovieClubMember)
   end
-
-  class NotMovieClubMember < StandardError
-  end
 end
