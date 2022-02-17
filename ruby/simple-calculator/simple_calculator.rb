@@ -2,20 +2,19 @@ class SimpleCalculator
   ALLOWED_OPERATIONS = ['+', '/', '*'].freeze
 
   def self.calculate(first_operand, second_operand, operation)
-    print_calculation(first_operand, second_operand, operation)
-  end
+    raise ArgumentError if first_operand.class != Integer || second_operand.class != Integer
 
-  def self.print_calculation(first_operand, second_operand, operation)
+    raise UnsupportedOperation unless ALLOWED_OPERATIONS.include? operation
+
     begin
       desired_calculation = "#{first_operand} #{operation} #{second_operand}"
       operation_result = first_operand.public_send operation, second_operand
       "#{desired_calculation} = #{operation_result}"
-
-    rescue => e
-      puts e.class.name
+    rescue ZeroDivisionError
+      'Division by zero is not allowed.'
     end
   end
-  private_class_method :print_calculation
+class UnsupportedOperation < StandardError
 end
 
-puts SimpleCalculator.calculate(2, 3, nil)
+end
