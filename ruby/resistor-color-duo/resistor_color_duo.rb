@@ -8,7 +8,6 @@ To get started with TDD, see the `README.md` file in your
 class ResistorColorDuo
   attr_reader :colors
 
-
   COLOR_VALUES = {
     black: '0',
     brown: '1',
