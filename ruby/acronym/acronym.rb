@@ -9,9 +9,10 @@ To get started with TDD, see the `README.md` file in your
 #  'Acronym' class is designed to parse a phrase and pick the first letter of each word and return an acronym
 class Acronym
   def self.abbreviate(phrase)
-    acronym = String.new
-    separate_words(phrase).each { |word| acronym += word.split('').first.upcase }
-    acronym
+    # acronym = String.new
+    # separate_words(phrase).each { |word| acronym += word.split('').first.upcase }
+    acronym = separate_words(phrase)
+    acronym.map { |word| word[0].upcase }.join
   end
 
   def self.separate_words(phrase)
