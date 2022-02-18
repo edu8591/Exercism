@@ -15,15 +15,12 @@ class Acronym
   end
 
   def self.separate_words(phrase)
-    words_array = phrase.split(' ')
+    replace_special_characters(phrase).split(' ')
   end
 
-  def self.remove_special_characters(words_array)
-    words_array.each do |word|
-
-    end
+  def self.replace_special_characters(phrase)
+    regex = Regexp.new(/\W/)
+    phrase.gsub(regex, ' ')
   end
-  private_class_method :separate_words, :remove_special_characters
+  private_class_method :separate_words, :replace_special_characters
 end
-
-puts Acronym.abbreviate('first in, first out')
