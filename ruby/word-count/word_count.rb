@@ -10,17 +10,12 @@ class Phrase
   attr_reader :words
 
   def initialize(words)
-    @words = split_words(words)
+    @words = words.downcase.scan(/\b[\w']+\b/)
   end
 
   def word_count
     results = {}
     words.each { |word| results.key?(word) ? results[word] += 1 : results[word] = 1 }
     results
-  end
-
-  def split_words(words)
-    no_special_characters = words.downcase.gsub(/[^\w']/, ' ')
-    no_special_characters.split(' ').map { |word| word[0] == "'" && word[-1] == "'" ? word[1...-1] : word }
   end
 end
