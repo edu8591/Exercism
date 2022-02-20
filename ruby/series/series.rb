@@ -10,11 +10,12 @@ class Series
   attr_reader :digits
 
   def initialize(digits)
-    @digits = digits.split('')
+    @digits = digits.chars
   end
 
   def slices(size)
     raise ArgumentError if size > digits.length
+
     digits.each_cons(size).map(&:join)
   end
 end
