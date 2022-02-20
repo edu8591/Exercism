@@ -15,15 +15,6 @@ class Series
 
   def slices(size)
     raise ArgumentError if size > digits.length
-
-    # digits.each_cons(size).map{ |element| element.join}
     digits.each_cons(size).map(&:join)
-    # arr = []
-    # i = 0
-    # while i + size <= digits.length
-    #   arr << digits[i, size].join
-    #   i += 1
-    # end
-    # arr
   end
 end
