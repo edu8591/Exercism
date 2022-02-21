@@ -1,11 +1,11 @@
 class Raindrops
+  SOUNDS = { 3 => 'Pling', 5 => 'Plang', 7 => 'Plong' }.freeze
+
   def self.convert(drops)
     result = ''
-
-    result += 'Pling' if (drops % 3).zero?
-    result += 'Plang' if (drops % 5).zero?
-    result += 'Plong' if (drops % 7).zero?
+    SOUNDS.each_pair { |key, value| result += value if (drops % key).zero? }
     return drops.to_s if result.empty?
+
     result
   end
 end
