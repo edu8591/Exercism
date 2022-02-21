@@ -6,11 +6,11 @@ To get started with TDD, see the `README.md` file in your
 `ruby/hamming` directory.
 =end
 class Hamming
-  def self.compute(a, b)
-    raise ArgumentError unless a.chars.length == b.chars.length
+  def self.compute(strand_a, strand_b)
+    raise ArgumentError unless strand_a.length == strand_b.length
 
-    counter = 0
-    a.chars.each_with_index { |letter, i| counter += 1 if letter != b.chars[i] }
-    counter
+    distance = 0
+    strand_a.each_char.with_index { |letter, i| distance += 1 if letter != strand_b[i] }
+    distance
   end
 end
