@@ -10,7 +10,7 @@ class Luhn
     else
       total_sum = calculate_even(numbers)
     end
-    (total_sum % 10).even?
+    (total_sum % 10).zero?
   end
 
   def self.calculate_odd(numbers)
