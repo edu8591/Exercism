@@ -6,21 +6,36 @@ class Luhn
     numbers = input.scan(/[0-9]/).map(&:to_i)
     total_sum = 0
     if numbers.length.odd?
-      numbers.each_with_index do |number, index|
-        if index.odd?
-          total_sum += number * 2 > 9 ? number * 2 - 9 : number * 2
-        else
-          total_sum += number
-        end
-      end
+      total_sum = calculate_odd(numbers)
     else
-      numbers.each_with_index do |number, index|
-        if index.even?
-          total_sum += number * 2 > 9 ? number * 2 - 9 : number * 2
-        else
-          total_sum += number
-        end
-      end
+      total_sum = calculate_even(numbers)
     end
     (total_sum % 10).even?
   end
+
+  def self.calculate_odd(numbers)
+    total_sum = 0
+    numbers.each_with_index do |number, index|
+      if index.odd?
+        total_sum += number * 2 > 9 ? number * 2 - 9 : number * 2
+      else
+        total_sum += number
+      end
+    end
+    total_sum
+  end
+
+  def self.calculate_even(numbers)
+    total_sum = 0
+    numbers.each_with_index do |number, index|
+      if index.even?
+        total_sum += number * 2 > 9 ? number * 2 - 9 : number * 2
+      else
+        total_sum += number
+      end
+    end
+    total_sum
+  end
+
+  private_class_method :calculate_odd, :calculate_even
+end
