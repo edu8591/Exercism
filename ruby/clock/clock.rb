@@ -21,10 +21,6 @@ class Clock
   end
 
   def ==(other)
-    if hour == other.hour && minute == other.minute
-      true
-    else
-      false
-    end
+    hour == other.hour && minute == other.minute
   end
 end
