@@ -34,7 +34,7 @@ class Tournament
       reply << "#{key}              |  #{value['MP']} |  #{value['W']}|  #{value['D']} |  #{value['L']} |  #{value['P']}"
     end
 
-    reply.join('\n')
+    reply.map { |line| line + "\n"}.join()
   end
 
   def self.points_to_winner(team)
